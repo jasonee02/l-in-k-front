@@ -1,0 +1,16 @@
+
+ion-card {
+  background-color: #ffffff;
+  margin: 20px;
+  .img-wrapper {
+    position: relative;
+    height: 24vh;
+    overflow: hidden;
+    img {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);      
+    }
+  }
+}
