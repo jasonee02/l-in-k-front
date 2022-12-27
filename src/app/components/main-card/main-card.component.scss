@@ -14,3 +14,30 @@ ion-card {
     }
   }
 }
+
+ion-card-title {
+  color: #1C1B1F;
+  font-weight: 500;
+}
+
+ion-card-content {
+  .registerer-name {
+    color: #49454F;
+  }
+}
+
+.counted-item-wrapper {
+  ion-icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  ion-icon[name="heart"],
+  ion-icon[name="heart-outline"] {
+    color: #FC7C54;
+  }
+  .counted-text {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 1vh;
+  }
+}

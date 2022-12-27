@@ -14,6 +14,8 @@
   </ion-header>
 
 
-  <app-main-card></app-main-card>
+  <div *ngFor="let card of cardList">
+    <main-card (emitValue)="clickedCard($event)" [card]="card"></main-card>
+  </div>
   <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
 </ion-content>

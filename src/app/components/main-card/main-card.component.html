@@ -1,5 +1,5 @@
 
-<ion-card *ngFor="let card of cardList">
+<ion-card (click)="click()">
   <div class="img-wrapper">
     <img alt="" src="{{ card.img }}" />
   </div>
@@ -9,15 +9,17 @@
   </ion-card-header>
 
   <ion-card-content>
-    <ion-row>
-    <ion-col size="6">
+    <ion-row class="ion-justify-content-center">
+    <ion-col size="6" class="registerer-name">
         {{ card.user_nickname }}
       </ion-col>
-      <ion-col size="3">
-        {{ card.likes_cnt }}
+      <ion-col size="3" class="counted-item-wrapper">
+        <ion-icon name="{{ card.is_my_likes ? 'heart' : 'heart-outline' }}"></ion-icon>
+        <span class="counted-text">{{ card.likes_cnt }}</span>
       </ion-col>
-      <ion-col size="3">
-        {{ card.comments_cnt }}
+      <ion-col size="3" class="counted-item-wrapper">
+        <ion-icon name="{{ card.is_my_comment ? 'chatbubble-ellipses' : 'chatbubble-ellipses-outline' }}"></ion-icon>
+        <span class="counted-text">{{ card.comments_cnt }}</span>
       </ion-col>
     </ion-row>
   </ion-card-content>
