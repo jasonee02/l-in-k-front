@@ -1,4 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { SearchModalComponent } from '../components/search-modal/search-modal.component';
 
 @Component({
   selector: 'app-tab1',
@@ -32,7 +34,7 @@ export class Tab1Page {
       'comments_cnt' : 10
     }
   ];
-  constructor() {}
+  constructor(private modalCtrl: ModalController) {}
 
   clickedCard(e?:any) {
     console.log(`CLICKED => ${e}`);
@@ -41,5 +43,12 @@ export class Tab1Page {
   // ionViewDidEnter() {
   //   this.SetDataEvent.emit(this.cardList);
   // }
-  
+  async searchClick() {
+    const modal = await this.modalCtrl.create({
+      component: SearchModalComponent,
+    });
+    modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+  }
 }

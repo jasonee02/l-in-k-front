@@ -13,6 +13,9 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-button (click)="searchClick()">
+    aaaa
+  </ion-button>
 
   <div *ngFor="let card of cardList">
     <main-card (emitValue)="clickedCard($event)" [card]="card"></main-card>

@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title>search</ion-title> -->
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-searchbar></ion-searchbar>
+    <!-- [debounce]="500" (ionChange)="handleSearch($event)" -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="main-content-wrapper">
+    <div>
+      <ion-toolbar>
+        <ion-title size="small">최근 검색어</ion-title>
+      </ion-toolbar>
+      <div class="allow-overflow-y">
+        <ion-chip *ngFor="let word of recentSearchedWordsList">
+          {{ word }}
+        </ion-chip>
+      </div>
+    </div>
+  
+    <div>
+      <ion-toolbar>
+        <ion-title size="small">인기 검색어</ion-title>
+      </ion-toolbar>
+      <ion-list>
+        <ion-item lines="full" *ngFor="let word of popularSearchedWordsList; let i=index;">
+          <ion-label>
+            <ion-row>
+              <ion-col size="2" [ngStyle]="{'color': i < 3 ? '#FF8125' : '#000000'}">
+                <span>{{ i + 1 }}</span>
+              </ion-col>
+              <ion-col size="10">
+                {{ word }}
+              </ion-col>
+            </ion-row>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  
+    <div>
+      <ion-toolbar>
+        <ion-title size="small">인기 레시피</ion-title>
+      </ion-toolbar>
+      <div class="allow-overflow-y recipe-imgs">
+        <div *ngFor="let data of recipeList" class="img-wrapper">
+          <ion-img alt="" src="{{ data.img }}"></ion-img>
+          <span>{{ data.description }}</span>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+
+  
+
+</ion-content>

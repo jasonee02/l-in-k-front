@@ -1,0 +1,55 @@
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>
+      <ion-chip class="community-category-chip">{{ card.category_name }}</ion-chip>
+    </ion-card-subtitle>
+    <!-- <ion-card-title class="community-card-title">
+      <span *ngIf="card.code === 1" class="q-mark">Q.</span>
+      {{ card.title }}
+    </ion-card-title> -->
+  </ion-card-header>
+
+  <ion-card-content>
+    <div class="content-top-wrapper" (click)="click(card)">
+
+      <div class="community-card-content-title">
+        <span *ngIf="card.code === 1" class="q-mark">Q.</span>
+        {{ card.title }}
+      </div>
+      <div *ngIf="card.code !== 1" class="community-card-content-description">
+        {{ card.content }}
+      </div>
+      <div class="community-card-content-registerer-nickname">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img alt="aaa" src="{{ card.user_img ?? 'https://ionicframework.com/docs/img/demos/avatar.svg'}}" />
+          </ion-avatar>
+          <ion-label>{{ card.registerer_nickname }}</ion-label>
+          <span slot="end">2분 전</span>
+        </ion-item>
+      </div>
+    </div>
+    <div class="line-divider"></div>
+    <div class="content-bottom-wrapper">
+
+      <div *ngIf="card.code === 1; else notCodeOne">
+        Welcome back, friend.
+      </div>
+      
+      <ng-template #notCodeOne>
+        <ion-row>
+          <ion-col size="4" class="counted-item-wrapper">
+            <ion-icon name="{{ card.is_my_likes ? 'heart' : 'heart-outline' }}"></ion-icon>
+            <span class="counted-text">{{ card.likes_cnt }}</span>
+          </ion-col>
+          <ion-col size="4" class="counted-item-wrapper">
+            <ion-icon name="{{ card.is_my_comment ? 'chatbubble-ellipses' : 'chatbubble-ellipses-outline' }}"></ion-icon>
+            <span class="counted-text">{{ card.comments_cnt }}</span>
+          </ion-col>
+        </ion-row>
+      </ng-template>
+      
+    </div>
+  </ion-card-content>
+</ion-card>

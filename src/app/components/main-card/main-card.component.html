@@ -10,10 +10,16 @@
 
   <ion-card-content>
     <ion-row class="ion-justify-content-center">
-    <ion-col size="6" class="registerer-name">
+      <ion-col size="6" class="registerer-name">
         {{ card.user_nickname }}
       </ion-col>
       <ion-col size="3" class="counted-item-wrapper">
+
+        <!-- <ion-item lines="none">
+          <ion-icon name="{{ card.is_my_likes ? 'heart' : 'heart-outline' }}" slot="start"></ion-icon>
+          <ion-label>{{ card.likes_cnt }}</ion-label>
+        </ion-item> -->
+
         <ion-icon name="{{ card.is_my_likes ? 'heart' : 'heart-outline' }}"></ion-icon>
         <span class="counted-text">{{ card.likes_cnt }}</span>
       </ion-col>
